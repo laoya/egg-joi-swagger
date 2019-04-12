@@ -1,6 +1,5 @@
 'use strict';
 
-const fs = require('fs');
 const mock = require('egg-mock');
 
 describe('test/joi-swagger.test.js', () => {
@@ -19,7 +18,7 @@ describe('test/joi-swagger.test.js', () => {
     return app.httpRequest()
       .get('/apidoc')
       .expect('Content-Type', /html/)
-      .expect(200)
+      .expect(200);
   });
 
   it('should GET /user?phone=33sfe', () => {
