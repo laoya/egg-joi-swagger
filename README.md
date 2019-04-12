@@ -9,12 +9,12 @@
 
 [npm-image]: https://img.shields.io/npm/v/egg-joi-swagger.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/egg-joi-swagger
-[travis-image]: https://img.shields.io/travis/eggjs/egg-joi-swagger.svg?style=flat-square
-[travis-url]: https://travis-ci.org/eggjs/egg-joi-swagger
-[codecov-image]: https://img.shields.io/codecov/c/github/eggjs/egg-joi-swagger.svg?style=flat-square
-[codecov-url]: https://codecov.io/github/eggjs/egg-joi-swagger?branch=master
-[david-image]: https://img.shields.io/david/eggjs/egg-joi-swagger.svg?style=flat-square
-[david-url]: https://david-dm.org/eggjs/egg-joi-swagger
+[travis-image]: https://img.shields.io/travis/laoya/egg-joi-swagger.svg?style=flat-square&t=1
+[travis-url]: https://travis-ci.org/laoya/egg-joi-swagger
+[codecov-image]: https://img.shields.io/codecov/c/github/laoya/egg-joi-swagger.svg?style=flat-square
+[codecov-url]: https://codecov.io/github/laoya/egg-joi-swagger?branch=master
+[david-image]: https://img.shields.io/david/laoya/egg-joi-swagger.svg?style=flat-square
+[david-url]: https://david-dm.org/laoya/egg-joi-swagger
 [snyk-image]: https://snyk.io/test/npm/egg-joi-swagger/badge.svg?style=flat-square
 [snyk-url]: https://snyk.io/test/npm/egg-joi-swagger
 [download-image]: https://img.shields.io/npm/dm/egg-joi-swagger.svg?style=flat-square
