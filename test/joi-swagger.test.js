@@ -20,9 +20,6 @@ describe('test/joi-swagger.test.js', () => {
       .get('/apidoc')
       .expect('Content-Type', /html/)
       .expect(200)
-      .then(res => {
-        fs.writeFileSync('./doc.html', res.text);
-      });
   });
 
   it('should GET /user?phone=33sfe', () => {

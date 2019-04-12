@@ -15,7 +15,6 @@
     "egg-swagger"
   ],
   "dependencies": {
-    "api2html": "^0.3.2",
     "joi": "^14.3.1",
     "joi2json": "^1.0.2",
     "lodash": "^4.17.11",
