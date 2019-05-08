@@ -40,6 +40,8 @@ module.exports = () => {
                 parameters.push({
                   in: 'query',
                   name,
+                  // eslint-disable-next-line no-bitwise
+                  required: query.required && !!~query.required.indexOf(name),
                   schema: query.properties[name],
                   description: query.properties[name].description,
                 });
@@ -103,7 +105,7 @@ module.exports = () => {
 
             body = dejoi(body);
 
-            if (required) item.required = required;
+            if (required) body.required = required;
 
             item.requestBody = {
               required: true,
