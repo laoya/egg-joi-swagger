@@ -38,18 +38,18 @@ module.exports = {
       schema.components = defaultComponents;
 
       // eslint-disable-next-line no-inner-declarations
-      function readFiles(schemaDir, schema) {
+      function readFiles(schemaDir, curSchema) {
         const dirFiles = fs.readdirSync(schemaDir);
         for (let i = 0; i < dirFiles.length; i++) {
           const stat = fs.statSync(schemaDir + '/' + dirFiles[i]);
           if (stat.isDirectory()) {
-            schema[dirFiles[i]] = {};
-            readFiles(schemaDir + '/' + dirFiles[i], schema[dirFiles[i]]);
+            curSchema[dirFiles[i]] = {};
+            readFiles(schemaDir + '/' + dirFiles[i], curSchema[dirFiles[i]]);
           } else {
             const key = dirFiles[i].split('.')[0];
             if (key === 'components') continue;
-            schema[key] = require(schemaDir + '/' + dirFiles[i]);
-            schema[key] = isPlainObject(schema[key]) ? isPlainObject(schema[key]) : schema[key](schema.components);
+            curSchema[key] = require(schemaDir + '/' + dirFiles[i]);
+            curSchema[key] = isPlainObject(curSchema[key]) ? isPlainObject(curSchema[key]) : curSchema[key](schema.components);
           }
         }
       }
