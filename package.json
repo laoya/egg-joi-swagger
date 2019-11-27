@@ -1,6 +1,6 @@
 {
   "name": "egg-joi-swagger",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "joi + swagger + validate plugin for eggjs",
   "eggPlugin": {
     "name": "joiSwagger"

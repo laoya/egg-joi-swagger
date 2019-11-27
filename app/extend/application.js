@@ -25,7 +25,6 @@ module.exports = {
     try {
       const defaultComponents = require('../schema/components');
       const schemaDir = path.join(baseDir, joiSwaggerConfig.schemaPath);
-      const dirFiles = fs.readdirSync(schemaDir);
       try {
         let userComponents = require(schemaDir + '/components');
         userComponents = isPlainObject(userComponents) ? userComponents : userComponents(defaultComponents);
@@ -38,12 +37,24 @@ module.exports = {
       }
       schema.components = defaultComponents;
 
-      for (let i = 0; i < dirFiles.length; i++) {
-        const key = dirFiles[i].split('.')[0];
-        if (key === 'components') continue;
-        schema[key] = require(schemaDir + '/' + dirFiles[i]);
-        schema[key] = isPlainObject(schema[key]) ? isPlainObject(schema[key]) : schema[key](schema.components);
+      // eslint-disable-next-line no-inner-declarations
+      function readFiles(schemaDir, schema) {
+        const dirFiles = fs.readdirSync(schemaDir);
+        for (let i = 0; i < dirFiles.length; i++) {
+          const stat = fs.statSync(schemaDir + '/' + dirFiles[i]);
+          if (stat.isDirectory()) {
+            schema[dirFiles[i]] = {};
+            readFiles(schemaDir + '/' + dirFiles[i], schema[dirFiles[i]]);
+          } else {
+            const key = dirFiles[i].split('.')[0];
+            if (key === 'components') continue;
+            schema[key] = require(schemaDir + '/' + dirFiles[i]);
+            schema[key] = isPlainObject(schema[key]) ? isPlainObject(schema[key]) : schema[key](schema.components);
+          }
+        }
       }
+
+      readFiles(schemaDir, schema);
 
       const { components } = schema;
       for (const paramType in components) {
