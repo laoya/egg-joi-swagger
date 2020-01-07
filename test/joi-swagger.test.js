@@ -67,4 +67,11 @@ describe('test/joi-swagger.test.js', () => {
       .send({})
       .expect(422);
   });
+
+  it('should GET /user/group?name=xee', () => {
+    return app.httpRequest()
+      .get('/user/group?name=xee')
+      .expect(200)
+      .expect([]);
+  });
 });

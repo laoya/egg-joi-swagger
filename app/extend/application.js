@@ -46,7 +46,11 @@ module.exports = {
             curSchema[dirFiles[i]] = {};
             readFiles(schemaDir + '/' + dirFiles[i], curSchema[dirFiles[i]]);
           } else {
-            const key = dirFiles[i].split('.')[0];
+            const keyArr = dirFiles[i].split('.')[0].split('_');
+            let key = keyArr[0];
+            for (let i = 1; i < keyArr.length; i++) {
+              key += (keyArr[i].substring(0, 1).toUpperCase() + keyArr[i].substring(1));
+            }
             if (key === 'components') continue;
             curSchema[key] = require(schemaDir + '/' + dirFiles[i]);
             curSchema[key] = isPlainObject(curSchema[key]) ? isPlainObject(curSchema[key]) : curSchema[key](schema.components);
