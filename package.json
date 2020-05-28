@@ -19,7 +19,8 @@
     "joi2json": "^1.0.2",
     "lodash": "^4.17.11",
     "shins": "^2.3.2-4",
-    "widdershins": "^3.6.7"
+    "widdershins": "^3.6.7",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
@@ -41,7 +42,9 @@
     "lint": "eslint .",
     "ci": "egg-bin pkgfiles --check && npm run lint && npm run cov",
     "pkgfiles": "egg-bin pkgfiles",
-    "autod": "autod"
+    "autod": "autod",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "files": [
     "app",
@@ -60,5 +63,6 @@
   },
   "homepage": "https://github.com/eggjs/egg-joi-swagger#readme",
   "author": "laoya",
-  "license": "MIT"
+  "license": "MIT",
+  "snyk": true
 }
