@@ -19,7 +19,7 @@
     "joi2json": "^1.0.2",
     "lodash": "^4.17.11",
     "shins": "^2.3.2-4",
-    "widdershins": "^3.6.7"
+    "widdershins": "^4.0.0"
   },
   "devDependencies": {
     "autod": "^3.0.1",
